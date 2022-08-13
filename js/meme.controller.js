@@ -9,7 +9,6 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
 
     renderMeme()
-    // renderGallery()
 }
 
 
@@ -17,16 +16,14 @@ function renderMeme() {
     /** renders an image on the canvas and a line of text on top*/
 
     const currMeme = getMeme()
+    const currImage = findImageForMeme(currMeme.selectedImgId)
 
     const img = new Image()
-    img.src = 'img/square-memes/1.jpg'
+    img.src = (currImage) ? currImage.url : 'img/square-memes/1.jpg'
+
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         gCtx.font = '48px serif'
-
-        // gCtx.fillStyle = 'white'
-        // gCtx.textAlign = 'center'
-        // gCtx.font = "30px Arial"
 
         currMeme.lines.forEach(line => {
             gCtx.textAlign = line.align

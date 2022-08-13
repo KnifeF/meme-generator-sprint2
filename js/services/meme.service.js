@@ -18,6 +18,11 @@ var gMeme = {
     ]
 }
 
+function findImageForMeme(imageId) {
+    /**find image for meme by given id */
+    return gImgs.find(image => imageId === image.id)
+}
+
 function initializeImgs() {
     /**initializes gImgs with images */
     for (let i = 0; i < gNumOfImgs; i++) {
@@ -31,6 +36,11 @@ function getImages() {
     return gImgs
 }
 
+function setImg(imageId) {
+    /** set image for meme */
+    gMeme.selectedImgId = imageId
+}
+
 function getMeme() {
     /**get the meme obj from gMeme */
     return gMeme
@@ -38,10 +48,5 @@ function getMeme() {
 
 function setLineTxt(textVal) {
     /** update the gMeme txt by user input*/
-    // console.log(elTextLine)
-    // console.log(elTextLine.value)
-
-    if (textVal) {
-        gMeme.lines[0].txt = textVal
-    }
+    if (textVal) gMeme.lines[0].txt = textVal
 }
