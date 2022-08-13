@@ -1,5 +1,10 @@
+'use strict'
+
+var gNumOfImgs = 18
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-var gImgs = [{ id: 1, url: '/img/square-memes/1.jpg', keywords: ['funny', 'cat'] }];
+// var gImgs = [{ id: 1, url: '/img/square-memes/1.jpg', keywords: ['funny', 'cat'] }]
+var gImgs = []
+
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -11,6 +16,19 @@ var gMeme = {
             color: 'red'
         }
     ]
+}
+
+function initializeImgs() {
+    /**initializes gImgs with images */
+    for (let i = 0; i < gNumOfImgs; i++) {
+        gImgs.push({ id: i + 1, url: `/img/square-memes/${i + 1}.jpg`, keywords: ['funny', 'cat'] })
+    }
+
+}
+
+function getImages() {
+    /**get array of images for gallery */
+    return gImgs
 }
 
 function getMeme() {
