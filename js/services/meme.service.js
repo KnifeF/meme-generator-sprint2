@@ -17,3 +17,13 @@ function getMeme() {
     /**get the meme obj from gMeme */
     return gMeme
 }
+
+function setLineTxt(textVal) {
+    /** update the gMeme txt by user input*/
+    // console.log(elTextLine)
+    // console.log(elTextLine.value)
+
+    if (textVal) {
+        gMeme.lines[0].txt = textVal
+    }
+}

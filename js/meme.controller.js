@@ -38,3 +38,9 @@ function renderMeme() {
     }
 
 }
+
+function updateMeme(elTextVal) {
+    /**renders updated meme */
+    setLineTxt(elTextVal)
+    renderMeme()
+}

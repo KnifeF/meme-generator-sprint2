@@ -29,7 +29,9 @@
             <section class="canvas-container">
                 <canvas id="my-canvas" width="400" height="400" style="outline:2px solid rgb(0, 0, 0)"></canvas>
             </section>
-            <section class="control-box"></section>
+            <section class="control-box">
+                <input type="text" id="text-line" name="text-line" placeholder="Text Line" onchange="updateMeme(this.value)">
+            </section>
         </section>
     </main>
     <footer>
