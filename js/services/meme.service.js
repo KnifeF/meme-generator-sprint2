@@ -12,3 +12,8 @@ var gMeme = {
         }
     ]
 }
+
+function getMeme() {
+    /**get the meme obj from gMeme */
+    return gMeme
+}
