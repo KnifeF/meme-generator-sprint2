@@ -16,6 +16,9 @@
 // 7. First to lines shall appear at start editing a new meme – ready to be edited.
 // First two lines shall be at the TOP and BOTTOM of canvas, further lines at the
 // center
+// Phase4 - Basic CSS:
+// a. Build the page layout
+// b. Make it look good on mobile (both gallery and Editor)
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event
 
 var gElCanvas

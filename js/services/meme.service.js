@@ -38,7 +38,7 @@ function findImageForMeme(imageId) {
 function initializeImgs() {
     /**initializes gImgs with images */
     for (let i = 0; i < gNumOfImgs; i++) {
-        gImgs.push({ id: i + 1, url: `/img/square-memes/${i + 1}.jpg`, keywords: ['funny', 'cat'] })
+        gImgs.push({ id: i + 1, url: `img/square-memes/${i + 1}.jpg`, keywords: ['funny', 'cat'] })
     }
 
 }
