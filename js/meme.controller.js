@@ -20,6 +20,7 @@
 
 var gElCanvas
 var gCtx
+const ALIGNOPTS = ['left', 'right', 'center']
 
 function onInit() {
     initGallery()
@@ -53,7 +54,8 @@ function renderMeme() {
 
         currMeme.lines.forEach(line => {
             gCtx.textAlign = line.align
-            gCtx.font = `${line.size}px Arial`
+            // gCtx.font = `${line.size}px Arial`
+            gCtx.font = `${line.size}px ${line.font}`
 
             gCtx.strokeStyle = line.strokeColor
             gCtx.fillStyle = line.color
@@ -120,6 +122,13 @@ function updateValue(e) {
 
 }
 
+function alignText(alignOpt) {
+    if (ALIGNOPTS.includes(alignOpt)) {
+        setAlign(alignOpt)
+        renderMeme()
+    }
+}
+
 function setListeners() {
     // Text of line shall be updated while typing
     const elTextLine = document.querySelector('#text-line');
@@ -127,9 +136,28 @@ function setListeners() {
 
     // color of line shall be updated while picking color
     const elColorFill = document.querySelector('#color-fill');
-    elColorFill.addEventListener('input', function() { updateColorStyle('fill', elColorFill.value) })
+    elColorFill.addEventListener('input', function () { updateColorStyle('fill', elColorFill.value) })
 
     // stroke color of line shall be updated while picking color
     const elStrokeFill = document.querySelector('#color-stroke');
-    elStrokeFill.addEventListener('input', function() { updateColorStyle('stroke', elStrokeFill.value) })
+    elStrokeFill.addEventListener('input', function () { updateColorStyle('stroke', elStrokeFill.value) })
+}
+
+function canvasClicked(ev) {
+    // TODO: find out if the user clicked a star's bar
+    let clickedTxt = null
+    // https://www.w3schools.com/tags/canvas_measuretext.asp
+    // https://stackoverflow.com/questions/17097892/clicking-text-in-an-html5-canvas
+    // https://www.tutorialspoint.com/How-do-I-add-a-simple-onClick-event-handler-to-an-HTML5-canvas-element
+    // ctx.measureText(txt).width
+    // clickedStar = gStars.find(star => {
+    //     return ev.offsetX >= star.x && ev.offsetX <= star.x + gBarWidth &&
+    //         ev.offsetY >= star.y && ev.offsetY <= star.y + star.rate
+    // })
+
+    // if (clickedStar) {
+    //     const { name, rate } = clickedStar
+    //     openModal(name, rate, ev.clientX, ev.clientY)
+    // }
+    // else closeModal()
 }

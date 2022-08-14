@@ -19,7 +19,7 @@ function renderGallery() {
         const imagesHtml = currImages.map(currImage => {
             const url = currImage.url
             const id = currImage.id
-            return `<img src="${url}" alt="meme-image" onclick="onImgSelect(${id})">`
+            return `<img class="gallery-image" src="${url}" alt="meme-image" onclick="onImgSelect(${id})">`
         }).join('')
 
         if (imagesHtml) elImgGallery.innerHTML = imagesHtml

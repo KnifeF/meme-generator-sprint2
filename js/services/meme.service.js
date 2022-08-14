@@ -15,6 +15,7 @@ var gMeme = {
             align: 'center',
             color: 'white',
             strokeColor: 'black',
+            font: 'impact',
             yPos: 50
         },
         {
@@ -23,6 +24,7 @@ var gMeme = {
             align: 'left',
             color: 'white',
             strokeColor: 'black',
+            font: 'impact',
             yPos: 200
         },
     ]
@@ -79,6 +81,11 @@ function setFontSize(changeBy) {
     if (changeBy && gMeme.lines[currIdx].size + changeBy >= 8) {
         gMeme.lines[currIdx].size += changeBy
     }
+}
+
+function setAlign(alignOpt) {
+    const currIdx = gMeme.selectedLineIdx
+    gMeme.lines[currIdx].align = alignOpt
 }
 
 function changeSelectedLine() {
