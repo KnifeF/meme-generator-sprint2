@@ -67,15 +67,17 @@ function setLineTxt(textVal) {
 
 function setMemeLineColor(optStyle, clr) {
     /** update relevant color of meme text in the model gMeme*/
+    const currIdx = gMeme.selectedLineIdx
     if (clr) {
-        if (optStyle === 'fill') gMeme.lines[0].color = clr
-        else gMeme.lines[0].strokeColor = clr
+        if (optStyle === 'fill') gMeme.lines[currIdx].color = clr
+        else gMeme.lines[currIdx].strokeColor = clr
     }
 }
 
 function setFontSize(changeBy) {
-    if (changeBy && gMeme.lines[0].size + changeBy >= 8) {
-        gMeme.lines[0].size += changeBy
+    const currIdx = gMeme.selectedLineIdx
+    if (changeBy && gMeme.lines[currIdx].size + changeBy >= 8) {
+        gMeme.lines[currIdx].size += changeBy
     }
 }
 

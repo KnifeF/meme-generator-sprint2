@@ -16,7 +16,7 @@
 // 7. First to lines shall appear at start editing a new meme – ready to be edited.
 // First two lines shall be at the TOP and BOTTOM of canvas, further lines at the
 // center
-
+// https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event
 
 var gElCanvas
 var gCtx
@@ -32,6 +32,8 @@ function onInit() {
     renderMeme()
 
     focusLine()
+
+    setListeners()
 
 }
 
@@ -109,4 +111,25 @@ function focusLine() {
         // elTextLine.setAttribute('value', currTxt)
         elTextLine.value = currTxt
     }
+}
+
+function updateValue(e) {
+    // log.textContent = e.target.value;
+    // console.log(e)
+    updateMeme(e.target.value)
+
+}
+
+function setListeners() {
+    // Text of line shall be updated while typing
+    const elTextLine = document.querySelector('#text-line');
+    elTextLine.addEventListener('input', updateValue);
+
+    // color of line shall be updated while picking color
+    const elColorFill = document.querySelector('#color-fill');
+    elColorFill.addEventListener('input', function() { updateColorStyle('fill', elColorFill.value) })
+
+    // stroke color of line shall be updated while picking color
+    const elStrokeFill = document.querySelector('#color-stroke');
+    elStrokeFill.addEventListener('input', function() { updateColorStyle('stroke', elStrokeFill.value) })
 }

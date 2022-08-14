@@ -31,7 +31,7 @@
             <section class="control-box">
                 <!-- <input type="text" id="text-line" name="text-line" placeholder="Text Line"
                     onchange="updateMeme(this.value)" value=""> -->
-                <input type="text" id="text-line" name="text-line" onchange="updateMeme(this.value)" value="">
+                <input type="text" id="text-line" name="text-line" onchange="updateMeme(this.value)" value=""/>
                 <button class="switch-line" onclick="switchLine()">Switch line</button>
                 <button class="increase-font" onclick="updateFontSize('increase')">Increase font</button>
                 <button class="decrease-font" onclick="updateFontSize('decrease')">Decrease font</button>
@@ -46,10 +46,10 @@
                     </div> -->
                     <h3>Please Pick a fill color</h3>
                     <input type="color" id="color-fill" name="clr-fill" onchange="updateColorStyle('fill', this.value)"
-                        value="#ff0000">
+                        value="#ff0000"/>
                     <h3>Please Pick a stroke color</h3>
                     <input type="color" id="color-stroke" name="clr-stroke"
-                        onchange="updateColorStyle('stroke', this.value)" value="#ff0000">
+                        onchange="updateColorStyle('stroke', this.value)" value="#ff0000"/>
                     <button onclick="toggleModal()">Close</button>
                 </div>
 
