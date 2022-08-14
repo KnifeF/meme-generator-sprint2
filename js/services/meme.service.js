@@ -13,7 +13,8 @@ var gMeme = {
             txt: 'I sometimes eat Falafel',
             size: 20,
             align: 'left',
-            color: 'red'
+            color: 'white',
+            strokeColor: 'black'
         }
     ]
 }
@@ -49,4 +50,18 @@ function getMeme() {
 function setLineTxt(textVal) {
     /** update the gMeme txt by user input*/
     if (textVal) gMeme.lines[0].txt = textVal
+}
+
+function setMemeLineColor(optStyle, clr) {
+    /** update relevant color of meme text in the model gMeme*/
+    if (clr) {
+        if (optStyle === 'fill') gMeme.lines[0].color = clr
+        else gMeme.lines[0].strokeColor = clr
+    }
+}
+
+function setFontSize(changeBy) {
+    if (changeBy && gMeme.lines[0].size + changeBy >= 8) {
+        gMeme.lines[0].size += changeBy
+    }
 }

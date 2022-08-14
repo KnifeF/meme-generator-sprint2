@@ -24,12 +24,33 @@
     </header>
     <main class="main-content">
         <section class="image-gallery"></section>
-        <section class="meme-editor">
+        <section class="meme-editor hide">
             <section class="canvas-container">
                 <canvas id="my-canvas" width="400" height="400" style="outline:2px solid rgb(0, 0, 0)"></canvas>
             </section>
             <section class="control-box">
-                <input type="text" id="text-line" name="text-line" placeholder="Text Line" onchange="updateMeme(this.value)">
+                <input type="text" id="text-line" name="text-line" placeholder="Text Line"
+                    onchange="updateMeme(this.value)">
+                <button class="increase-font" onclick="updateFontSize('increase')">Increase font</button>
+                <button class="decrease-font" onclick="updateFontSize('decrease')">Decrease font</button>
+                <button class="color-fill" onclick="toggleModal('fill-clr')">Color</button>
+                <!-- <button class="color-stroke" onclick="toggleModal('stroke-clr')"></button> -->
+                <div class="modal hide">
+                    <!-- <div class="fill-clr hide"> -->
+                    <!-- </div> -->
+                    <!-- <div class="stroke-clr hide">
+                        <h3>Please Pick a stroke color</h3>
+                        <input type="color" id="color-stroke" name="clr-stroke" onchange="updateColorStyle('stroke', this.value)" value="#ff0000">
+                    </div> -->
+                    <h3>Please Pick a fill color</h3>
+                    <input type="color" id="color-fill" name="clr-fill" onchange="updateColorStyle('fill', this.value)"
+                        value="#ff0000">
+                    <h3>Please Pick a stroke color</h3>
+                    <input type="color" id="color-stroke" name="clr-stroke" onchange="updateColorStyle('stroke', this.value)"
+                        value="#ff0000">
+                    <button onclick="toggleModal()">Close</button>
+                </div>
+
             </section>
         </section>
     </main>

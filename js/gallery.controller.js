@@ -1,6 +1,7 @@
 'use strict'
 
-initGallery()
+// Gallery: Show a Gallery of images
+// initGallery()
 
 function initGallery() {
     initializeImgs()
@@ -30,5 +31,15 @@ function onImgSelect(currImageId) {
      * call the memeService's setImg() and then renderMeme()*/
     setImg(currImageId)
     // console.log('x:', getMeme())
+    toggleViews()
     renderMeme()
+}
+
+function toggleViews() {
+    /**changes views from image gallery to meme editor and the opposite */
+    const elImgGallery = document.querySelector('.image-gallery')
+    const elMemeEditor = document.querySelector('.meme-editor')
+
+    elImgGallery.classList.toggle('hide')
+    elMemeEditor.classList.toggle('hide')
 }
