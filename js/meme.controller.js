@@ -27,7 +27,12 @@ function onInit() {
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
 
+    // document.querySelector('#text-line').setAttribute('value', currMeme.lines[currMeme.selectedLineIdx])
+
     renderMeme()
+
+    focusLine()
+
 }
 
 
@@ -47,10 +52,12 @@ function renderMeme() {
         currMeme.lines.forEach(line => {
             gCtx.textAlign = line.align
             gCtx.font = `${line.size}px Arial`
+
             gCtx.strokeStyle = line.strokeColor
             gCtx.fillStyle = line.color
-            gCtx.strokeText(line.txt, gElCanvas.width / 2, 50)
-            gCtx.fillText(line.txt, gElCanvas.width / 2, 50)
+            gCtx.strokeText(line.txt, gElCanvas.width / 2, line.yPos)
+            gCtx.fillText(line.txt, gElCanvas.width / 2, line.yPos)
+            // gCtx.fillText(line.txt, gElCanvas.width / 2, 50)
         })
         // gCtx.fillText('Hello world', gElCanvas.width / 2, 50)
 
@@ -86,4 +93,20 @@ function updateFontSize(fontOpt) {
     if (fontOpt === 'increase') setFontSize(1)
     else setFontSize(-1)
     renderMeme()
+}
+
+function switchLine() {
+    changeSelectedLine()
+    focusLine()
+}
+
+function focusLine() {
+    const currMeme = getMeme()
+    const elTextLine = document.querySelector('#text-line')
+    console.log(elTextLine)
+    if (elTextLine) {
+        const currTxt = currMeme.lines[currMeme.selectedLineIdx].txt
+        // elTextLine.setAttribute('value', currTxt)
+        elTextLine.value = currTxt
+    }
 }

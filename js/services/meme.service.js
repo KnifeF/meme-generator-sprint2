@@ -10,12 +10,21 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
-            size: 20,
+            txt: 'When you press on belly button,',
+            size: 18,
+            align: 'center',
+            color: 'white',
+            strokeColor: 'black',
+            yPos: 50
+        },
+        {
+            txt: 'You also press on the belly..',
+            size: 14,
             align: 'left',
             color: 'white',
-            strokeColor: 'black'
-        }
+            strokeColor: 'black',
+            yPos: 200
+        },
     ]
 }
 
@@ -49,7 +58,11 @@ function getMeme() {
 
 function setLineTxt(textVal) {
     /** update the gMeme txt by user input*/
-    if (textVal) gMeme.lines[0].txt = textVal
+    // if (textVal) gMeme.lines[0].txt = textVal
+    if (textVal) {
+        const currIdx = gMeme.selectedLineIdx
+        gMeme.lines[currIdx].txt = textVal
+    }
 }
 
 function setMemeLineColor(optStyle, clr) {
@@ -64,4 +77,9 @@ function setFontSize(changeBy) {
     if (changeBy && gMeme.lines[0].size + changeBy >= 8) {
         gMeme.lines[0].size += changeBy
     }
+}
+
+function changeSelectedLine() {
+    if (gMeme.selectedLineIdx === 0) gMeme.selectedLineIdx = 1
+    else gMeme.selectedLineIdx = 0
 }
